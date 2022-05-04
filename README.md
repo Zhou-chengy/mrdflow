@@ -5,7 +5,7 @@
 
 ## 下载方式
 ```
-pip install mrdflow
+pip install mrdflow==1.1.0a2
 ```
 
 ## 使用说明：
