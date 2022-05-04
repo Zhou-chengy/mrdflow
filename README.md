@@ -66,22 +66,31 @@ class TestOp(ag.Op):
 import mrdflow as mf
 from mrdflow import autograd as ag
 import numpy as np
+#import cProfile
 data = np.load('mnist.npz')
 x_train = data['x_train']
 y_train = data['y_train']
 def x_train_data(x):
-    return ag.Tensor(x)/255
+    return (ag.Tensor(x)/255).reshape(1,28,28)
 def one_hot(y):
     v = ag.zeros(10)
     v[y] = 1
     return v
+def test(model,x,y):
+    p = len(x)
+    o = 0
+    for i in range(0,p):
+        tx = np.argmax(model.predict(ag.Tensor(x[i]/255)).array)
+        ty = y[i]
+        if tx==ty:
+            o += 1
+    return o/p
 x_train = list(map(x_train_data,x_train))
 y_train = list(map(one_hot,y_train))
-model = mf.Sequential([mf.Conv2d([28,28],1,[5,5]),
-                       mf.MaxPooling2d([24,24],[4,4]),
-                       mf.Dense(36,10,activation=mf.softmax)])
-model.compile(optimizer=mf.Adam)
-model.fit(x=x_train,y=y_train,epoch=1000,batch_size=100)
-model.save('mnist.model')
+model = mf.nn.Sequential([mf.nn.layer.Conv2d([28,28],[4,4],activation=mf.relu,pad='VALID'),
+                       mf.nn.layer.MaxPooling2d([5,5]),
+                       mf.nn.layer.Dense(5*5,10,activation=mf.softmax)])
+model.compile(optimizer=mf.nn.Adam,lr=0.1)
+model.fit(x=x_train,y=y_train,epoch=1000,batch_size=10)
 #保存模型
 ```
