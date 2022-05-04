@@ -61,7 +61,7 @@ class TestOp(ag.Op):
 ```
 ### 2 神经网络
 #### 2.1 mnist
-##### 下面是用mrdflow训练模型识别手写数字的例子。请确保下载好mnist.npz文件，[下载链接]（https://www.kaggle.com/datasets/vikramtiwari/mnist-numpy/download)
+##### 下面是用mrdflow训练模型识别手写数字的例子。请确保下载好mnist.npz文件，[下载链接](https://www.kaggle.com/datasets/vikramtiwari/mnist-numpy/download)
 ``` Python
 import mrdflow as mf
 from mrdflow import autograd as ag
