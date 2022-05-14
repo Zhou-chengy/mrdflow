@@ -5,7 +5,7 @@
 
 ## 下载方式
 ```
-pip install mrdflow==1.1.0a2
+pip install mrdflow==1.1.0a3
 ```
 
 ## 使用说明：
@@ -94,3 +94,6 @@ model.compile(optimizer=mf.nn.Adam,lr=0.1)
 model.fit(x=x_train,y=y_train,epoch=1000,batch_size=10)
 #保存模型
 ```
+### 详细使用方法
+#### 参考官方文档
+##### [mrdflow](https://mrdflow.github.io/zh/)
