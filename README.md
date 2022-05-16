@@ -4,9 +4,14 @@
 ## 基于numpy构建
 
 ## 下载方式
+Pypi下载出现问题，请先使用Github下载
 ```
 pip install mrdflow==1.1.0a3
 ```
+
+### Github下载
+
+将mrdflow文件下载移动到Python文件夹下/Lib/site-packages
 
 ## 使用说明：
 ### 1 autograd
