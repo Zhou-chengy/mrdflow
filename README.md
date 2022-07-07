@@ -6,7 +6,7 @@
 ## 下载方式
 Pypi下载出现问题，请先使用Github下载
 ```
-pip install mrdflow==1.1.0a3
+pip install mrdflow==1.1.0b2
 ```
 
 ### Github下载
@@ -98,6 +98,7 @@ model = mf.nn.Sequential([mf.nn.layer.Conv2d([28,28],[4,4],activation=mf.relu,pa
 model.compile(optimizer=mf.nn.Adam,lr=0.1)
 model.fit(x=x_train,y=y_train,epoch=1000,batch_size=10)
 #保存模型
+model.savez('mnist.model')
 ```
 ### 详细使用方法
 #### 参考官方文档
